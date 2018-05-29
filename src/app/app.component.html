@@ -8,7 +8,7 @@
 <button kendoButton (click)="onButtonClick()" [primary]="true">Execute Fct on Grid</button>
 
 
-<kendo-grid 
+<kendo-grid
   #grid
   [data]="gridData"
   [sortable]="true"
@@ -25,3 +25,37 @@
   </ng-template>
 
 </kendo-grid>
+
+<hr/>
+<h3>Multi-Select Test</h3>
+
+<!--(open)="open()"-->
+<!--(close)="close()"-->
+<!--(focus)="focus()"-->
+<!--(blur)="blur()"-->
+
+<div style="margin-top: 2rem;">
+List of countries:
+<kendo-multiselect [data]="multiSelectData"
+                   [filterable]="true"
+                   (filterChange)="multiSelectFilterChange($event)"
+                   (valueChange)="multiSelectValueChange($event)"
+  [(ngModel)]="selectedCountries"
+>
+</kendo-multiselect>
+</div>
+
+<div style="margin-top: 1rem;">
+  Current Selected Countries (model binding): <br/>
+  {{selectedCountries | json}}
+</div>
+<div style="margin-top: 1rem;">
+  Current Selected Countries (value change event): <br/>
+  {{selectedCountriesValueChange | json}}
+</div>
+
+<ul>
+  <li *ngFor="let country of selectedCountriesValueChange; index as i; first as isFirst">
+    {{i}}: {{country}} <span *ngIf="isFirst"> - First</span>
+  </li>
+</ul>

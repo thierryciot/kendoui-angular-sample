@@ -7,8 +7,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // Import kendo ui modules
 import { ButtonsModule } from '@progress/kendo-angular-buttons';
 import { GridModule } from '@progress/kendo-angular-grid';
+import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
 
 import { AppComponent } from './app.component';
+import {FormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -19,7 +21,9 @@ import { AppComponent } from './app.component';
     BrowserModule,
     BrowserAnimationsModule,
     ButtonsModule,
-    GridModule
+    GridModule,
+    DropDownsModule,
+    FormsModule             /* Need to include this otherwise get error Can't bind to 'ngModel' since it isn't a known property of 'kendo-multiselect' */
   ],
   providers: [],
   bootstrap: [AppComponent]
